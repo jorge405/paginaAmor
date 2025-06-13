@@ -1,5 +1,9 @@
+---
+import "../styles/global.css";
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="en" :class="{ dark:localstorage.getItem('theme')==='dark'}">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -7,16 +11,13 @@
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
 	</head>
-	<body>
+	<body class=" dark:bg-linear-to-b dark:from-cyan-950 dark:to-sky-900 bg-red-200 transition-colors duration-300 overflow-x-hidden">
+		<div id="color-transition-overlay" class="pointer-events-none fixed inset-0 z-50 bg-red-100 dark:bg-gradient-to-b dark:from-cyan-950 dark:to-sky-900 scale-x-0 origin-center transition-transform duration-700 ">
+
+		</div>
 		<slot />
 	</body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+
+
